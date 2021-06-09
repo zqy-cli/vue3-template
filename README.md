@@ -1,11 +1,4 @@
 <p align="center">
-  <a href="https://github.com/rcyj-FED/vue3-composition-admin-docs" target="_blank">
-    <img width="180" src="https://github.com/rcyj-FED/vue3-composition-admin-docs/blob/main/docs/.vuepress/public/icons/android-chrome-192x192.png" alt="logo">
-  </a>
-</p>
-
-
-<p align="center">
   <a href="https://github.com/vuejs/vue">
     <img src="https://img.shields.io/badge/vue-3.0-brightgreen.svg" alt="vue">
   </a>
@@ -32,27 +25,6 @@
 ## 简介
 
 项目的基础版本出自于源于花裤衩大佬的 vue-element-admin。
-
-版本：
-
-vue2+js版本：[vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
-
-vue2+ts版本：[vue-typescript-admin-template](https://github.com/Armour/vue-typescript-admin-template) 
-
-vue3 发布之后，性能增强，速度vue2的倍数，打包体积都在减小（treeshaking），composition api 增加了项目可读性。
-
-项目目的：
-
-- 学习vue3+ts
-- 保持 composition api 风格
-
-在线demo演示地址：https://admin-tmpl-test.rencaiyoujia.cn/
-
-## 相关项目
-
-- 基于该项目[RuoYi-Vue3](https://github.com/rcyj-FED/RuoYi-Vue3) (后端路由案例)
-- 微应用乾坤版本[RuoYi-Vue3-qinkun](https://github.com/RainManGO/RuoYi-Vue3-qiankun)
-- 国内gitee版本 [vue3-composition-admin](https://gitee.com/codeZyZ_admin/vue3-composition-admin) 
 
 
 ### 功能
@@ -182,8 +154,6 @@ vue next 系列:
 ## Document
 
 - [博客文档地址](https://blog.csdn.net/zy_flyway/category_6335128.html)
-- [文档地址](https://rcyj-fed.github.io/vue3-composition-admin-docs/)
-- [文档项目git地址](https://github.com/rcyj-FED/vue3-composition-admin-docs)
 
 
 ## Setup
@@ -222,7 +192,6 @@ or
 ```
 
 mock 需要部署到服务器，单独项目地址：https://github.com/rcyj-FED/admin-tmpl-mock
-mock在线测试地址：https://admin-tmpl-mock-test.rencaiyoujia.cn/
 
 ### 单独启动 vue admin
 
@@ -280,13 +249,6 @@ Modern browsers and Internet Explorer 10+.
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | IE10, IE11, Edge                                             | last 2 versions                                              | last 2 versions                                              | last 2 versions                                              |
 
-## 讨论交流（QQ群：584617908）
-
-  <p align="left">
-  <a  target="_blank">
-    <img width="180" src="https://github.com/RainManGO/vue3-composition-admin/blob/main/IMAGE/QQ.JPG" alt="qq">
-  </a>
-</p>
 
 ## License
 
