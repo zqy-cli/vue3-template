@@ -1,0 +1,5 @@
+src/config
+src/views
+src/utils/bideo.js
+vue.config.js
+mock/
