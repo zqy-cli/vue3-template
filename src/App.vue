@@ -1,37 +1,21 @@
-<!--
- * @Description:
- * @Autor: ZY
- * @Date: 2020-12-07 10:30:20
- * @LastEditors: SCY
- * @LastEditTime: 2021-04-06 10:11:53
--->
 <template>
-  <router-view />
+  <ConfigProvider :locale="getAntdLocale">
+    <AppProvider>
+      <RouterView />
+    </AppProvider>
+  </ConfigProvider>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
+  import { ConfigProvider } from 'ant-design-vue';
+  import { AppProvider } from '/@/components/Application';
+  import { useTitle } from '/@/hooks/web/useTitle';
+  import { useLocale } from '/@/locales/useLocale';
 
-export default defineComponent({
+  import 'dayjs/locale/zh-cn';
+  // support Multi-language
+  const { getAntdLocale } = useLocale();
 
-})
+  // Listening to page changes and dynamically changing site titles
+  useTitle();
 </script>
-<style lang="scss">
-.el-menu-item:hover{
-  outline: 0 !important;
-  color: #409EFF !important;
-}
-
-.el-submenu__title:focus, .el-submenu__title:hover{
-  outline: 0 !important;
-  color: #fff !important;
-  background: #435EBE !important;
-  border-radius: 8px !important;
-}
-.el-menu-item:hover{
-   outline: 0 !important;
-  color: #fff !important;
-  background: #435EBE !important;
-  border-radius: 8px !important;
-}
-</style>

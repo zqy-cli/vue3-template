@@ -1,0 +1,46 @@
+// 动态表单样式声明
+.dynamicForm {
+  .ant-select-selector {
+    height: 32px;
+    overflow: auto;
+  }
+}
+
+.form-create {
+  each(range(12), {
+    .ant-col-@{value} {
+      min-width: calc(1280px / (24 / @value));
+      max-width: calc(1920px / (24 / @value));
+    }
+    .ant-col-@{value}.ant-form-item-label {
+      max-width: calc(100% / (24 / @value));
+      min-width: inherit;
+    }
+  });
+}
+
+.form-create-mixin {
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 0.375rem;
+  overflow-y: auto;
+}
+
+.form-wrapper-large {
+  .form-create-mixin();
+
+  max-height: 185px;
+}
+
+.form-wrapper-normal {
+  .form-create-mixin();
+
+  max-height: 155px;
+}
+
+.form-wrapper-small {
+  .form-create-mixin();
+
+  max-height: 100px;
+}

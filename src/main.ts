@@ -1,31 +1,63 @@
-/*
- * @Description:
- * @Autor: ZY
- * @Date: 2020-12-07 10:30:20
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-27 19:20:07
- */
-import { createApp, Directive } from 'vue'
-import App from './App.vue'
-// import './pwa/registerServiceWorker'
-import router from './router'
-import { store } from './store'
-import { loadAllPlugins } from './plugins'
-import '@/assets/iconfont/iconfont.css'
-import '@/styles/index.scss'
-import 'normalize.css'
-import * as directives from '@/directives'
-import '@/permission'
+import './design/index.less';
+// Register icon sprite
+import 'virtual:svg-icons-register';
+import App from './App.vue';
+import { createApp } from 'vue';
+import { initAppConfigStore } from './logics/initAppConfig';
+import { setupErrorHandle } from './logics/error-handle';
+import { router, setupRouter } from './router';
+import { setupRouterGuard } from './router/guard';
+import { setupStore } from './store';
+import { setupGlobDirectives } from './directives';
+import { setupI18n } from './locales/setupI18n';
+import { registerGlobComp } from './components/registerGlobComp';
+import { registerCreateForm } from './components/registerCreateForm';
 
-const app = createApp(App)
-// 加载所有插件
-loadAllPlugins(app)
+// tailwindcss
+import './style/index.css';
 
-console.log(process.env.VUE_APP_BASE_API)
+// Importing on demand in local development will increase the number of browser requests by around 20%.
+// This may slow down the browser refresh speed.
+// Therefore, only enable on-demand importing in production environments .
+if (import.meta.env.DEV) {
+  import('ant-design-vue/dist/antd.less');
+}
 
-// 自定义指令
-Object.keys(directives).forEach(key => {
-  app.directive(key, (directives as { [key: string ]: Directive })[key])
-})
+async function bootstrap() {
+  const app = createApp(App);
 
-app.use(store).use(router).mount('#app')
+  // Configure store
+  setupStore(app);
+
+  // Initialize internal system configuration
+  initAppConfigStore();
+
+  // Register global components
+  registerGlobComp(app);
+
+  // Multilingual configuration
+  // Asynchronous case: language files may be obtained from the server side
+  await setupI18n(app);
+
+  // Configure routing
+  setupRouter(app);
+
+  // router-guard
+  setupRouterGuard(router);
+
+  // Register global directive
+  setupGlobDirectives(app);
+
+  // Configure global error handling
+  setupErrorHandle(app);
+
+  // Register DynamicForm
+  registerCreateForm(app);
+
+  // https://next.router.vuejs.org/api/#isready
+  // await router.isReady();
+
+  app.mount('#app');
+}
+
+bootstrap();

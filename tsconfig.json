@@ -2,42 +2,47 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "strict": true,
-    "jsx": "preserve",
-    "importHelpers": true,
     "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
-    "suppressImplicitAnyIndexErrors":true,
+    "strictFunctionTypes": false,
+    "jsx": "preserve",
+    "baseUrl": "../../前端脚手架",
+    "allowJs": true,
     "sourceMap": true,
-    "baseUrl": ".",
-    "types": [
-      "node",
-      "webpack-env",
-      "jest"
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "experimentalDecorators": true,
+    "lib": ["dom", "esnext"],
+    "types": ["vite/client", "jest"],
+    "typeRoots": ["./node_modules/@types/",
+      "./types"
     ],
+    "noImplicitAny": false,
+    "skipLibCheck": true,
     "paths": {
-      "@/*": [
-        "src/*"
+      "/@/*": ["src/*"],
+      "/#/*": ["types/*"],
+      "ramda": [
+        "location-of-types/npm-ramda-package/index"
       ]
-    },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ]
+    }
   },
   "include": [
+    "tests/**/*.ts",
     "src/**/*.ts",
+    "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "types/**/*.d.ts",
+    "types/**/*.ts",
+    "build/**/*.ts",
+    "build/**/*.d.ts",
+    "mock/**/*.ts",
+    "vite.config.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules", "tests/server/**/*.ts", "dist", "**/*.js"]
 }
